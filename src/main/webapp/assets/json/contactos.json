@@ -1,29 +1,22 @@
 {"contacts":[{
 	"id": "null",
-	"name": "pablo",
-	"email": "pablo@pablo.com",
-	"phone": "1313221321321",
-	"fotoString": "null"
-}
-,{
-	"id": "c04da864-fcde-4e83-85e3-e3b2ced492bf",
 	"name": "jean",
 	"email": "jean@jean.com",
 	"phone": "123213123",
-	"fotoString": "pfp.jpeg"
-}
-,{
-	"id": "68874580-8bd9-4826-9368-f96acf22bed2",
-	"name": "jesus",
-	"email": "jesus@jesus.com",
-	"phone": "123123123213",
 	"fotoString": "https://i.pinimg.com/originals/9d/c5/47/9dc54770e31a3118a2290174a90325b3.jpg"
 }
 ,{
-	"id": "b4ee417b-96f6-4404-b977-fe130862092b",
-	"name": "jean",
-	"email": "jean@jean.com",
-	"phone": "123213123",
-	"fotoString": "null"
+	"id": "ae268dac-628e-4b4a-b0b8-ce0da8d6a786",
+	"name": "pablo",
+	"email": "pablo@pepetor.com",
+	"phone": "099999999",
+	"fotoString": "https://th.bing.com/th/id/OIP.Tz8Bc_WU74aCVibEArCmcwHaHa?w=186&h=186&c=7&r=0&o=5&pid=1.7]"
+}
+,{
+	"id": "ff0bbcdd-b165-4fb5-b0c5-c41722b5e677",
+	"name": "jesus",
+	"email": "Lgsus@Lgsus.com",
+	"phone": "069999999",
+	"fotoString": "https://th.bing.com/th/id/OIP.RuDIKvndo4BtNYioyusyIgAAAA?rs=1&pid=ImgDetMain"
 }
 ]}

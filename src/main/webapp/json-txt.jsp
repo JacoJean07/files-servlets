@@ -52,7 +52,6 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
@@ -63,11 +62,12 @@
                             <%
                                 for (JsonContacts contact : contacts) {
                                     out.println("<tr>");
-                                    out.println("<td>" + contact.getId() + "</td>");
                                     out.println("<td>" + contact.getName() + "</td>");
                                     out.println("<td>" + contact.getEmail() + "</td>");
                                     out.println("<td>" + contact.getPhone() + "</td>");
-                                    out.println("<td>" + contact.getFotoString() + "></td>");
+                                    // Mostrar el foto en una imagen con 24px de altura
+                                    // La imagen se carga desde el archivo JSON
+                                    out.println("<td><img src=\"" + contact.getFotoString() + "\" alt=\"foto\" height=\"50\"></td>");
                                     out.println("</tr>");
                                 }
                             %>

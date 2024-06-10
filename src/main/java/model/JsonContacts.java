@@ -22,19 +22,48 @@ public class JsonContacts {
         this.id = id;
     }
 
-    public JsonContacts() {}
+    public JsonContacts() {
+    }
 
-    public String getName() { return name; }
-    public String getEmail() { return email; }
-    public String getPhone() { return phone; }
-    public String getFotoString() { return fotoString; }
-    public String getId() { return id; }
+    public String getName() {
+        return name;
+    }
 
-    public void setName(String name) { this.name = name; }
-    public void setEmail(String email) { this.email = email; }
-    public void setPhone(String phone) { this.phone = phone; }
-    public void setFotoString(String fotoString) { this.fotoString = fotoString; }
-    public void setId(String id) { this.id = id; }
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getFotoString() {
+        return fotoString;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setFotoString(String fotoString) {
+        this.fotoString = fotoString;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public void writeJson(BufferedWriter writer) throws IOException {
         writer.write("{\n");
@@ -46,17 +75,20 @@ public class JsonContacts {
         writer.write("}\n");
     }
 
+    // Leer el archivo JSON y devolver una lista de objetos JsonContacts
     public static List<JsonContacts> readJson(String path) {
+        // Crear una lista para almacenar los objetos JsonContacts
         List<JsonContacts> contacts = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
+            // Leer el contenido del archivo JSON y parsearlo en una string
             String line;
             StringBuilder jsonContent = new StringBuilder();
             while ((line = reader.readLine()) != null) {
                 jsonContent.append(line);
             }
+            // Parsear el contenido del archivo JSON en una lista de objetos JsonContacts
             String jsonString = jsonContent.toString();
-            // Parse JSON string manually
-            jsonString = jsonString.substring(1, jsonString.length() - 1); // Remove the outer braces
+            jsonString = jsonString.substring(1, jsonString.length() - 1); // Eliminar la cabecera y la cola de la lista
             String[] items = jsonString.split("\\},\\{");
             for (String item : items) {
                 item = item.replace("{", "").replace("}", "").replace("\"", "");
@@ -78,14 +110,21 @@ public class JsonContacts {
                             contact.setPhone(keyValue[1].trim());
                             break;
                         case "fotoString":
-                            contact.setFotoString(keyValue[1].trim());
+                            StringBuilder fotoValue = new StringBuilder();
+                            for (int i = 1; i < keyValue.length; i++) {
+                                fotoValue.append(keyValue[i]);
+                                if (i < keyValue.length - 1) {
+                                    fotoValue.append(":"); // Agregar los dos puntos como parte del valor
+                                }
+                            }
+                            contact.setFotoString(fotoValue.toString().trim());
                             break;
                     }
                 }
                 contacts.add(contact);
             }
         } catch (IOException e) {
-            throw new RuntimeException("Error al leer el archivo .json", e);
+            throw new RuntimeException("Error al leer el archivo JSON", e);
         }
         return contacts;
     }
