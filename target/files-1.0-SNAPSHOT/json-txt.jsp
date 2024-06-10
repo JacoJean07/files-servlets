@@ -11,11 +11,15 @@
 
 
 <%
+    // DEFINIR UNA LISTA VACIA
     List<JsonContacts> contacts = new ArrayList<>();
     try {
+    // definimos una variable llamada path que contiene la ruta de nuestro documento de texto (JSON)
         String path = "C:\\Users\\Jaco\\Documents\\NetBeansProjects\\files\\src\\main\\webapp\\assets\\json\\contactos.json";
+        // el array o lista que estaba vacio va a ser igual al metodo readJson y como parametro le vamos a pasar la variable con el json
         contacts = JsonContacts.readJson(path);
     } catch (Exception e) {
+        // imprimir en pantalla si hay un error
         e.printStackTrace();
     }
 %>
@@ -32,7 +36,7 @@
                 <label for="phone">Teléfono</label>
                 <input type="text" class="form-control" id="phone" name="phone" required>
             </div>
-            <div class="form-group">
+            <div class="form-grou   p">
                 <label for="email">Correo</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
@@ -65,8 +69,6 @@
                                     out.println("<td>" + contact.getName() + "</td>");
                                     out.println("<td>" + contact.getEmail() + "</td>");
                                     out.println("<td>" + contact.getPhone() + "</td>");
-                                    // Mostrar el foto en una imagen con 24px de altura
-                                    // La imagen se carga desde el archivo JSON
                                     out.println("<td><img src=\"" + contact.getFotoString() + "\" alt=\"foto\" height=\"50\"></td>");
                                     out.println("</tr>");
                                 }
