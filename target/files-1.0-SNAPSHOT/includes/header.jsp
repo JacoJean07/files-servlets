@@ -29,7 +29,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">JSON & TXT</a>
+                            <a class="nav-link" href="json-txt.jsp">JSON & TXT</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">IMG & PDF</a>

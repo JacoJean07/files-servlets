@@ -1,0 +1,36 @@
+{"contacts":[{
+	"id": "null",
+	"name": "pablo",
+	"email": "pablo@pablo.com",
+	"phone": "1313221321321",
+	"fotoString": "null"
+}
+,{
+	"id": "c04da864-fcde-4e83-85e3-e3b2ced492bf",
+	"name": "jean",
+	"email": "jean@jean.com",
+	"phone": "123213123",
+	"fotoString": "pfp.jpeg"
+}
+,{
+	"id": "68874580-8bd9-4826-9368-f96acf22bed2",
+	"name": "jesus",
+	"email": "jesus@jesus.com",
+	"phone": "123123123213",
+	"fotoString": "WhatsApp_Image_2023-09-13_at_3.09.36_PM-removebg-preview.png]"
+}
+,{
+	"id": "46227d0e-dbe1-4ab4-afac-b7ef8dd491ab",
+	"name": "null",
+	"email": "null",
+	"phone": "null",
+	"fotoString": "https"
+}
+,{
+	"id": "b4ee417b-96f6-4404-b977-fe130862092b",
+	"name": "jean",
+	"email": "jean@jean.com",
+	"phone": "123213123",
+	"fotoString": "null"
+}
+]}
