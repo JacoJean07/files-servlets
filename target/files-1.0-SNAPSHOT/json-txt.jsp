@@ -29,7 +29,7 @@
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="phone">TelÃ©fono</label>
+                <label for="phone">Teléfono</label>
                 <input type="text" class="form-control" id="phone" name="phone" required>
             </div>
             <div class="form-group">
