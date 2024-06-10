@@ -3,12 +3,11 @@ package controller;
 import java.io.*;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
 import java.util.List;
 import model.JsonContacts;
 import java.util.UUID;
 
-@MultipartConfig
+
 public class JsonContactsController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -17,9 +16,7 @@ public class JsonContactsController extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        Part photoPart = request.getPart("photo");
-        //definir photoString como null
-        String photoString = null;
+        String photoString = request.getParameter("photo");
 
         // Crea un nuevo objeto JsonContacts con los datos del formulario
         JsonContacts contact = new JsonContacts(name, email, phone, photoString, UUID.randomUUID().toString());
@@ -48,13 +45,4 @@ public class JsonContactsController extends HttpServlet {
         response.sendRedirect("json-txt.jsp");
     }
 
-    // Método auxiliar para obtener el nombre del archivo de una parte de la petición
-    private String getFileName(Part part) throws IOException {
-        for (String cd : part.getHeader("content-disposition").split(";")) {
-            if (cd.trim().startsWith("filename")) {
-                return cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "").replace(" ", "");
-            }
-        }
-        throw new IOException("No se ha encontrado el nombre del archivo");
-    }
 }

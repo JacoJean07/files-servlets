@@ -23,7 +23,7 @@
 <div class="container d-flex">
     <div class="container input_section">
         <!-- este json va a guardar contactos simulando una base de datos -->
-        <form id="form" method="POST" action="JsonContactsController" enctype="multipart/form-data">
+        <form id="form" method="POST" action="JsonContactsController">
             <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" id="name" name="name" required>
@@ -67,7 +67,7 @@
                                     out.println("<td>" + contact.getName() + "</td>");
                                     out.println("<td>" + contact.getEmail() + "</td>");
                                     out.println("<td>" + contact.getPhone() + "</td>");
-                                    out.println("<td>" + contact.getFotoString() + "</td>");
+                                    out.println("<td>" + contact.getFotoString() + "></td>");
                                     out.println("</tr>");
                                 }
                             %>
