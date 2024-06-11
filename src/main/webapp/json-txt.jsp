@@ -11,29 +11,25 @@
 
 
 <%
-    // DEFINIR UNA LISTA VACIA
+
     List<JsonContacts> contacts = new ArrayList<>();
     try {
-    // definimos una variable llamada path que contiene la ruta de nuestro documento de texto (JSON)
         String path = "C:\\Users\\Jaco\\Documents\\NetBeansProjects\\files\\src\\main\\webapp\\assets\\json\\contactos.json";
-        // el array o lista que estaba vacio va a ser igual al metodo readJson y como parametro le vamos a pasar la variable con el json
         contacts = JsonContacts.readJson(path);
     } catch (Exception e) {
-        // imprimir en pantalla si hay un error
         e.printStackTrace();
     }
 %>
 
 <div class="container d-flex">
     <div class="container input_section">
-        <!-- este json va a guardar contactos simulando una base de datos -->
         <form id="form" method="POST" action="JsonContactsController">
             <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="phone">Teléfono</label>
+                <label for="phone">Telï¿½fono</label>
                 <input type="text" class="form-control" id="phone" name="phone" required>
             </div>
             <div class="form-grou   p">
@@ -48,7 +44,6 @@
         </form>
     </div>
     <div class="container view_section">
-        <!-- seccion para mostrar los contactos dentro del archivo .json y iterar sobre el array para mostrarlos -->
         <div class="row">
             <div class="col-md-12 table_section">
                 <div class="">

@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonContacts {
-    // definimos los atributos de la clase
     private String name;
     private String email;
     private String phone;
     private String fotoString;
     private String id;
 
-    // definimos nuestro constructor con parametros
     public JsonContacts(String name, String email, String phone, String fotoString, String id) {
         this.name = name;
         this.email = email;
@@ -24,11 +22,9 @@ public class JsonContacts {
         this.id = id;
     }
 
-    //definimos nuestro constructor sin parametros
     public JsonContacts() {
     }
 
-    //metodos getters
     public String getName() {
         return name;
     }
@@ -49,7 +45,6 @@ public class JsonContacts {
         return id;
     }
 
-    // metodos setters
     public void setName(String name) {
         this.name = name;
     }
@@ -70,7 +65,6 @@ public class JsonContacts {
         this.id = id;
     }
 
-    // metodo para escribir nuestro contacto con una estructura clave = valor dentro del json
     public void writeJson(BufferedWriter writer) throws IOException {
         writer.write("{\n");
         writer.write("\t\"id\": \"" + id + "\",\n");
@@ -81,18 +75,14 @@ public class JsonContacts {
         writer.write("}\n");
     }
 
-    // Leer el archivo JSON y devolver una lista de objetos JsonContacts
     public static List<JsonContacts> readJson(String path) {
-        // Crear una lista para almacenar los objetos JsonContacts
         List<JsonContacts> contacts = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            // Leer el contenido del archivo JSON y parsearlo en una string
             String line;
             StringBuilder jsonContent = new StringBuilder();
             while ((line = reader.readLine()) != null) {
                 jsonContent.append(line);
             }
-            // Parsear el contenido del archivo JSON en una lista de objetos JsonContacts
             String jsonString = jsonContent.toString();
             jsonString = jsonString.substring(1, jsonString.length() - 1); // Eliminar la cabecera y la cola de la lista
             String[] items = jsonString.split("\\},\\{");
@@ -103,11 +93,7 @@ public class JsonContacts {
                 for (String attribute : attributes) {
                     String[] keyValue = attribute.split(":");
                     switch (keyValue[0].trim()) {
-                        // case sera igual a la clave
                         case "id":
-                            // pasa metodo para sobrescribir el valor
-                            // almacenado en keyvalue y usa el metodo trim
-                            // para eliminar espacios en blanco al inicio y fin
                             contact.setId(keyValue[1].trim());
                             break;
                         case "name":
@@ -120,13 +106,11 @@ public class JsonContacts {
                             contact.setPhone(keyValue[1].trim());
                             break;
                         case "fotoString":
-                            // recorre la url letra por letra hasta el final y elimina los dos puntos
-                            // para luego volverlos a poner
                             StringBuilder fotoValue = new StringBuilder();
                             for (int i = 1; i < keyValue.length; i++) {
                                 fotoValue.append(keyValue[i]);
                                 if (i < keyValue.length - 1) {
-                                    fotoValue.append(":"); // Agregar los dos puntos como parte del valor
+                                    fotoValue.append(":"); 
                                 }
                             }
                             contact.setFotoString(fotoValue.toString().trim());
